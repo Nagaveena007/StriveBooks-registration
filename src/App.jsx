@@ -1,6 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+/* import { BrowserRouter, Routes, Route } from 'react-router-dom'
+ */
 import MyNav from "./components/MyNav";
 import Home from "./components/Home";
 import FooterPart from "./components/FooterPart";
