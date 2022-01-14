@@ -1,29 +1,29 @@
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { IoCartOutline, IoSearch } from "react-icons/io5";
 import scifi from "../data/scifi.json";
+import { Link, useLocation } from "react-router-dom";
 
 import Search from "./Search";
 
 const MyNav = ({ search }) => {
+  const location = useLocation();
+
   return (
     <Navbar
       bg="dark"
       variant="dark"
-      className=""
+      className="sticky-top"
       style={{ height: "70px", fontSize: "large" }}
     >
       <Navbar.Brand href="/">Strive Library</Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link href="/">Home</Nav.Link>
-        {/*   <NavDropdown title="Select Book Category" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Sci-fi</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Romantic</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Horror</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Fantacy</NavDropdown.Item>
-
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">History</NavDropdown.Item>
-        </NavDropdown> */}
+        <Link to="/">
+          <div
+            className={`nav-link${location.pathname === "/" ? " active" : ""}`}
+          >
+            Home
+          </div>
+        </Link>
       </Nav>
       <Nav className="mr-sm-2">
         {/*    <Search searchBook={search} /> */}
@@ -32,7 +32,24 @@ const MyNav = ({ search }) => {
           className="mt-2 mr-3"
         />
         <Nav.Link href="#features">About</Nav.Link>
-        <Nav.Link href="#pricing">Browse</Nav.Link>
+        <Link to="/registration">
+          <div
+            className={`nav-link${
+              location.pathname === "/registration" ? " active" : ""
+            }`}
+          >
+            Registraion Page
+          </div>
+        </Link>{" "}
+        <Link to="/demo">
+          <div
+            className={`nav-link${
+              location.pathname === "/demo" ? " active" : ""
+            }`}
+          >
+            Demo
+          </div>
+        </Link>{" "}
       </Nav>
       {/*  <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
